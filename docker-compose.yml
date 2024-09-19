@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: avnadmin
+      POSTGRES_PASSWORD: AVNS_3q7WTGGG4VOv0P27nz7
+      POSTGRES_DB: defaultdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    networks:
+      - backend
+    ports:
+      - "6379:6379"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - POSTGRES_USER=avnadmin
+      - POSTGRES_PASSWORD=AVNS_3q7WTGGG4VOv0P27nz7
+      - POSTGRES_DB=defaultdb
+      - REDIS_URL=redis://redis:6379/0
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge

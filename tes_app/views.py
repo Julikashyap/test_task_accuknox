@@ -14,7 +14,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from drf_yasg import openapi
 from django.core.mail import send_mail
 from test_task import settings
-from django.http import HttpResponse
+from django.shortcuts import render
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from django_ratelimit.decorators import ratelimit
@@ -24,7 +24,7 @@ from lib.custom_permissions import IsAdminOrReadOnlyParmission
 from django.contrib.auth.models import Group
 
 def index(request):
-    return HttpResponse("Welcome to the Social Networking Application App <a href='/swagger'>Doc</a>")
+    return render(request, 'index.html')
 
 def password_check(passwd):
     flag = 0
