@@ -48,11 +48,10 @@
                                     <code class="folder">env_name</code>
                                 </p>
                                 <p>When all dependency is installed successfully then need to run migrate command <code
-                                        class="code">python manage.py migrate</code>. We have comment out the MySQL DB
-                                    configuration and used by default DB due to fast setup</p>
+                                        class="code">python manage.py migrate</code>. We have used online postgress datbase so if you not run migrate and migration command then it will work also fine.</p>
                                 <p>Once migration is done then Automatically super user is also created due to we add
                                     migration file where adding superuser with username
-                                    <strong>superuser@gmail.com</strong> and password <strong>Admin@1234</strong></p>
+                                    <strong>superuser@gmail.com</strong> and <strong>Admin@1234</strong></p>
 
                                 <p>Now you're ready to start to run this server. All you have to do is run <code
                                         class="code">python manage.py runserver</code> in Terminal. This will track all
@@ -65,21 +64,20 @@
                                 <p>In swagger you get all API which you give me for development.</p>
                                 <ul>
                                     <li>First You need to register a user with register API. Once registration is done
-                                        then you need to login with same credential</li>
+                                        then you need to login with same credential (note: make sure redis server connected with this project, redis server setup write in readme file)</li>
                                     <li>When you login then you get a token and need to do other thing then you need to
                                         send this token into header.</li>
                                     <li>And do this then you need to copy this token and click on <b>Authorize</b></li>
-                                    <li>Here you see a input box now you authorise with <strong>token
+                                    <li>Here you see a input box now you authorise with <strong>Bearer
                                             paste_token</strong> and then authorise</li>
                                     <li>Now you are able to do other thing</li>
                                 </ul>
                                 <p>
-                                    <img src="{% static 'image/Capture.PNG' %}"><br>
-                                    <img src="{% static 'image/Capture1.PNG' %}"><br>
-                                    <img src="{% static 'image/Capture2.PNG' %}">
+                                    <img src="{% static 'image/img1.png' %}"><br>
+                                    <img src="{% static 'image/img2.png' %}"><br>
+                                    <img src="{% static 'image/img3.png' %}">
                                 </p>
-                                <p>You can import all postman collection with this link <a href="https://api.postman.com/collections/38045203-989a7829-9771-4dba-b678-de8b323ee83d?access_key=PMAT-01J6P5YGW9HSGSY1W9EAAH0NKC"
-                                    class="external" target="_blank">Postman Collection</a>
+                                
                             </section>
                         </article>
                     </div>
